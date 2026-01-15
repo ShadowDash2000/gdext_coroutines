@@ -49,7 +49,7 @@ impl TestClass {
 #[godot_api]
 impl INode for TestClass {
 	fn ready(&mut self) {
-		let base = self.base().to_godot();
+		let base = self.base().to_godot_owned();
 		test_1(base);
 	}
 }
@@ -401,7 +401,7 @@ fn test_5(node: Gd<Node>) {
 
 			    log("Test 5 finished");
 
-			    Ok(Variant::nil())
+			    Variant::nil()
 		    }))
 	    .spawn()
 	    .bind_mut()
